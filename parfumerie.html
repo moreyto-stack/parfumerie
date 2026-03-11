@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parfums & Cosmétiques Léa Mignon</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #7A4A1E;
+    --gold-light: #A0673A;
+    --dark: #E8D5B8;
+    --dark-2: #DFC9A8;
+    --dark-3: #D4BA93;
+    --cream: #2C1A08;
+    --text-muted: #6B4020;
+    --accent: #8B5E2E;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+background: var(–dark);
+color: var(–cream);
+font-family: ‘Jost’, sans-serif;
+font-weight: 300;
+overflow-x: hidden;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(–dark); }
+::-webkit-scrollbar-thumb { background: var(–gold); border-radius: 2px; }
+
+/* ===== HEADER ===== */
+header {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 1.5rem 4rem;
+background: rgba(220, 195, 160, 0.95);
+backdrop-filter: blur(20px);
+border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+}
+
+.logo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2rem;
+font-weight: 300;
+letter-spacing: 0.4em;
+color: var(–gold);
+text-transform: uppercase;
+}
+
+.logo span {
+font-style: italic;
+color: var(–cream);
+font-size: 0.75rem;
+display: block;
+letter-spacing: 0.3em;
+margin-top: -4px;
+font-weight: 200;
+}
+
+nav {
+display: flex;
+gap: 2.5rem;
+align-items: center;
+}
+
+nav a {
+color: var(–text-muted);
+text-decoration: none;
+font-size: 0.75rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+transition: color 0.3s;
+cursor: pointer;
+}
+
+nav a:hover, nav a.active { color: var(–gold); }
+
+.cart-btn {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+background: transparent;
+border: 1px solid var(–gold);
+color: var(–gold);
+padding: 0.6rem 1.2rem;
+cursor: pointer;
+font-family: ‘Jost’, sans-serif;
+font-size: 0.7rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+transition: all 0.3s;
+position: relative;
+}
+
+.cart-btn:hover { background: var(–gold); color: var(–dark); }
+
+.cart-count {
+background: var(–gold);
+color: var(–dark);
+border-radius: 50%;
+width: 18px;
+height: 18px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.65rem;
+font-weight: 500;
+transition: all 0.3s;
+}
+
+.cart-btn:hover .cart-count { background: var(–dark); color: var(–gold); }
+
+/* ===== HERO ===== */
+.hero {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+position: relative;
+overflow: hidden;
+padding-top: 5rem;
+}
+
+.hero-bg {
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse at 20% 50%, rgba(201, 169, 110, 0.08) 0%, transparent 60%),
+radial-gradient(ellipse at 80% 20%, rgba(139, 111, 71, 0.06) 0%, transparent 50%),
+radial-gradient(ellipse at 60% 80%, rgba(201, 169, 110, 0.05) 0%, transparent 50%);
+}
+
+.hero-lines {
+position: absolute;
+inset: 0;
+background-image:
+linear-gradient(rgba(201, 169, 110, 0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(201, 169, 110, 0.03) 1px, transparent 1px);
+background-size: 80px 80px;
+}
+
+.hero-content { position: relative; z-index: 1; }
+
+.hero-eyebrow {
+font-size: 0.65rem;
+letter-spacing: 0.5em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 1.5rem;
+animation: fadeUp 1s ease both;
+}
+
+.hero h1 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(4rem, 10vw, 8rem);
+font-weight: 300;
+line-height: 0.9;
+letter-spacing: -0.01em;
+animation: fadeUp 1s ease 0.2s both;
+margin-bottom: 2rem;
+}
+
+.hero h1 em {
+font-style: italic;
+color: var(–gold);
+display: block;
+}
+
+.hero-desc {
+font-size: 0.9rem;
+color: var(–text-muted);
+letter-spacing: 0.05em;
+max-width: 400px;
+margin: 0 auto 3rem;
+line-height: 1.8;
+animation: fadeUp 1s ease 0.4s both;
+}
+
+.hero-cta {
+display: inline-block;
+padding: 1rem 3rem;
+border: 1px solid var(–gold);
+color: var(–gold);
+font-size: 0.7rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+text-decoration: none;
+cursor: pointer;
+background: transparent;
+font-family: ‘Jost’, sans-serif;
+transition: all 0.4s;
+animation: fadeUp 1s ease 0.6s both;
+}
+
+.hero-cta:hover {
+background: var(–gold);
+color: var(–dark);
+letter-spacing: 0.4em;
+}
+
+.hero-orb {
+position: absolute;
+border-radius: 50%;
+filter: blur(80px);
+pointer-events: none;
+animation: float 8s ease-in-out infinite;
+}
+
+.orb-1 { width: 400px; height: 400px; background: rgba(201, 169, 110, 0.06); top: 10%; left: -10%; }
+.orb-2 { width: 300px; height: 300px; background: rgba(139, 111, 71, 0.05); bottom: 10%; right: -5%; animation-delay: -4s; }
+
+/* ===== FILTER TABS ===== */
+.filter-section {
+padding: 5rem 4rem 2rem;
+text-align: center;
+}
+
+.section-label {
+font-size: 0.6rem;
+letter-spacing: 0.5em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 1rem;
+}
+
+.section-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 3rem;
+font-weight: 300;
+margin-bottom: 2.5rem;
+letter-spacing: 0.02em;
+}
+
+.filters {
+display: flex;
+justify-content: center;
+gap: 0;
+border: 1px solid rgba(201, 169, 110, 0.2);
+display: inline-flex;
+margin-bottom: 4rem;
+}
+
+.filter-btn {
+padding: 0.8rem 2rem;
+background: transparent;
+border: none;
+border-right: 1px solid rgba(201, 169, 110, 0.2);
+color: var(–text-muted);
+font-family: ‘Jost’, sans-serif;
+font-size: 0.7rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+cursor: pointer;
+transition: all 0.3s;
+}
+
+.filter-btn:last-child { border-right: none; }
+.filter-btn:hover { color: var(–cream); background: rgba(201, 169, 110, 0.05); }
+.filter-btn.active { color: var(–dark); background: var(–gold); }
+
+/* ===== PRODUCTS GRID ===== */
+.products-section {
+padding: 0 4rem 6rem;
+}
+
+.products-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 2px;
+}
+
+.product-card {
+background: var(–dark-2);
+position: relative;
+overflow: hidden;
+cursor: pointer;
+transition: transform 0.4s;
+animation: fadeIn 0.6s ease both;
+}
+
+.product-card:hover { z-index: 2; transform: scale(1.02); }
+
+.product-img {
+height: 320px;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+overflow: hidden;
+}
+
+.product-emoji {
+font-size: 5rem;
+transition: transform 0.4s;
+filter: drop-shadow(0 0 30px rgba(201, 169, 110, 0.3));
+}
+
+.product-card:hover .product-emoji { transform: scale(1.1) rotate(-5deg); }
+
+.product-bg {
+position: absolute;
+inset: 0;
+background: radial-gradient(ellipse at center, rgba(201, 169, 110, 0.08), transparent 70%);
+transition: opacity 0.4s;
+opacity: 0;
+}
+
+.product-card:hover .product-bg { opacity: 1; }
+
+.product-badge {
+position: absolute;
+top: 1rem; right: 1rem;
+font-size: 0.55rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+padding: 0.3rem 0.8rem;
+background: var(–gold);
+color: var(–dark);
+font-weight: 500;
+}
+
+.gender-badge {
+position: absolute;
+top: 1rem; left: 1rem;
+font-size: 0.55rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+padding: 0.3rem 0.7rem;
+border: 1px solid rgba(201, 169, 110, 0.4);
+color: var(–gold);
+}
+
+.product-info {
+padding: 1.5rem;
+border-top: 1px solid rgba(201, 169, 110, 0.1);
+}
+
+.product-brand {
+font-size: 0.6rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 0.3rem;
+}
+
+.product-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.4rem;
+font-weight: 400;
+margin-bottom: 0.4rem;
+letter-spacing: 0.02em;
+}
+
+.product-desc {
+font-size: 0.72rem;
+color: var(–text-muted);
+line-height: 1.6;
+margin-bottom: 1.2rem;
+}
+
+.product-footer {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.product-price {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.5rem;
+color: var(–gold);
+font-weight: 300;
+}
+
+.add-btn {
+background: transparent;
+border: 1px solid rgba(201, 169, 110, 0.4);
+color: var(–gold);
+padding: 0.5rem 1.2rem;
+font-family: ‘Jost’, sans-serif;
+font-size: 0.65rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+cursor: pointer;
+transition: all 0.3s;
+}
+
+.add-btn:hover { background: var(–gold); color: var(–dark); border-color: var(–gold); }
+
+.add-btn.added { background: var(–gold); color: var(–dark); }
+
+/* ===== CART PANEL ===== */
+.cart-overlay {
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.7);
+backdrop-filter: blur(4px);
+z-index: 200;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.4s;
+}
+
+.cart-overlay.open { opacity: 1; pointer-events: all; }
+
+.cart-panel {
+position: fixed;
+top: 0; right: 0; bottom: 0;
+width: 480px;
+background: var(–dark-2);
+border-left: 1px solid rgba(201, 169, 110, 0.15);
+z-index: 201;
+transform: translateX(100%);
+transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+display: flex;
+flex-direction: column;
+}
+
+.cart-panel.open { transform: translateX(0); }
+
+.cart-header {
+padding: 2rem;
+border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.cart-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.8rem;
+font-weight: 300;
+letter-spacing: 0.05em;
+}
+
+.cart-title span {
+display: block;
+font-family: ‘Jost’, sans-serif;
+font-size: 0.6rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 0.2rem;
+}
+
+.close-cart {
+background: none;
+border: 1px solid rgba(201, 169, 110, 0.3);
+color: var(–text-muted);
+width: 36px;
+height: 36px;
+cursor: pointer;
+font-size: 1.2rem;
+transition: all 0.3s;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.close-cart:hover { border-color: var(–gold); color: var(–gold); }
+
+.cart-items {
+flex: 1;
+overflow-y: auto;
+padding: 1.5rem;
+}
+
+.cart-empty {
+text-align: center;
+padding: 4rem 2rem;
+color: var(–text-muted);
+}
+
+.cart-empty-icon { font-size: 4rem; margin-bottom: 1rem; opacity: 0.4; }
+
+.cart-empty p {
+font-size: 0.8rem;
+letter-spacing: 0.1em;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.2rem;
+font-style: italic;
+}
+
+.cart-item {
+display: flex;
+gap: 1rem;
+padding: 1.2rem 0;
+border-bottom: 1px solid rgba(201, 169, 110, 0.08);
+animation: slideIn 0.3s ease;
+}
+
+.cart-item-emoji { font-size: 2.5rem; flex-shrink: 0; }
+
+.cart-item-info { flex: 1; }
+
+.cart-item-brand {
+font-size: 0.55rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 0.2rem;
+}
+
+.cart-item-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.1rem;
+margin-bottom: 0.3rem;
+}
+
+.cart-item-price {
+font-family: ‘Cormorant Garamond’, serif;
+color: var(–gold);
+font-size: 1rem;
+}
+
+.cart-item-actions {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+margin-top: 0.5rem;
+}
+
+.qty-btn {
+width: 24px;
+height: 24px;
+border: 1px solid rgba(201, 169, 110, 0.3);
+background: none;
+color: var(–cream);
+cursor: pointer;
+font-size: 0.9rem;
+transition: all 0.2s;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.qty-btn:hover { border-color: var(–gold); color: var(–gold); }
+
+.qty-num {
+font-size: 0.85rem;
+min-width: 20px;
+text-align: center;
+}
+
+.remove-btn {
+background: none;
+border: none;
+color: var(–text-muted);
+cursor: pointer;
+font-size: 0.7rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+margin-left: auto;
+transition: color 0.2s;
+}
+
+.remove-btn:hover { color: #ff6b6b; }
+
+.cart-note {
+padding: 0 1.5rem;
+margin-bottom: 1rem;
+}
+
+.cart-note label {
+font-size: 0.65rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–gold);
+display: block;
+margin-bottom: 0.5rem;
+}
+
+.cart-note textarea {
+width: 100%;
+background: var(–dark-3);
+border: 1px solid rgba(201, 169, 110, 0.2);
+color: var(–cream);
+padding: 0.8rem;
+font-family: ‘Jost’, sans-serif;
+font-size: 0.8rem;
+resize: none;
+height: 80px;
+outline: none;
+transition: border-color 0.3s;
+}
+
+.cart-note textarea:focus { border-color: var(–gold); }
+.cart-note textarea::placeholder { color: var(–text-muted); }
+
+.cart-footer {
+padding: 1.5rem;
+border-top: 1px solid rgba(201, 169, 110, 0.1);
+}
+
+.cart-total {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 1.5rem;
+}
+
+.cart-total-label {
+font-size: 0.65rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–text-muted);
+}
+
+.cart-total-price {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2rem;
+color: var(–gold);
+font-weight: 300;
+}
+
+/* ===== CONTACT FORM ===== */
+.contact-form { padding: 0 1.5rem 1rem; }
+
+.form-row { margin-bottom: 0.8rem; }
+
+.form-row label {
+font-size: 0.6rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–gold);
+display: block;
+margin-bottom: 0.4rem;
+}
+
+.form-row input {
+width: 100%;
+background: var(–dark-3);
+border: 1px solid rgba(201, 169, 110, 0.2);
+color: var(–cream);
+padding: 0.7rem 0.8rem;
+font-family: ‘Jost’, sans-serif;
+font-size: 0.8rem;
+outline: none;
+transition: border-color 0.3s;
+}
+
+.form-row input:focus { border-color: var(–gold); }
+.form-row input::placeholder { color: var(–text-muted); }
+
+.send-btn {
+width: 100%;
+padding: 1.1rem;
+background: var(–gold);
+border: none;
+color: var(–dark);
+font-family: ‘Jost’, sans-serif;
+font-size: 0.75rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+cursor: pointer;
+transition: all 0.3s;
+font-weight: 500;
+}
+
+.send-btn:hover { background: var(–gold-light); letter-spacing: 0.4em; }
+.send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ===== SUCCESS MODAL ===== */
+.success-modal {
+position: fixed;
+inset: 0;
+z-index: 300;
+display: flex;
+align-items: center;
+justify-content: center;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.4s;
+}
+
+.success-modal.show { opacity: 1; pointer-events: all; }
+
+.success-bg {
+position: absolute;
+inset: 0;
+background: rgba(0,0,0,0.85);
+backdrop-filter: blur(8px);
+}
+
+.success-box {
+position: relative;
+background: var(–dark-2);
+border: 1px solid rgba(201, 169, 110, 0.3);
+padding: 4rem;
+text-align: center;
+max-width: 480px;
+animation: scaleIn 0.4s ease;
+}
+
+.success-icon { font-size: 4rem; margin-bottom: 1.5rem; }
+
+.success-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2.5rem;
+font-weight: 300;
+margin-bottom: 1rem;
+color: var(–gold);
+}
+
+.success-msg {
+font-size: 0.85rem;
+color: var(–text-muted);
+line-height: 1.8;
+margin-bottom: 2rem;
+}
+
+.success-close {
+background: transparent;
+border: 1px solid var(–gold);
+color: var(–gold);
+padding: 0.8rem 2.5rem;
+font-family: ‘Jost’, sans-serif;
+font-size: 0.7rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+cursor: pointer;
+transition: all 0.3s;
+}
+
+.success-close:hover { background: var(–gold); color: var(–dark); }
+
+/* ===== FOOTER ===== */
+footer {
+padding: 3rem 4rem;
+border-top: 1px solid rgba(201, 169, 110, 0.1);
+text-align: center;
+color: var(–text-muted);
+font-size: 0.7rem;
+letter-spacing: 0.15em;
+}
+
+footer .footer-logo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.5rem;
+color: var(–gold);
+letter-spacing: 0.4em;
+margin-bottom: 1rem;
+display: block;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+@keyframes slideIn {
+from { opacity: 0; transform: translateX(20px); }
+to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+from { opacity: 0; transform: scale(0.9); }
+to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-30px); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+header { padding: 1.2rem 1.5rem; }
+nav { display: none; }
+.filter-section, .products-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+.cart-panel { width: 100%; }
+.hero h1 { font-size: 3.5rem; }
+.filters { flex-wrap: wrap; }
+}
+
+.product-card.hidden { display: none; }
+
+.whatsapp-chip {
+display: inline-flex;
+align-items: center;
+gap: 0.4rem;
+font-size: 0.65rem;
+letter-spacing: 0.15em;
+color: var(–text-muted);
+margin-top: 0.5rem;
+}
+
+.whatsapp-dot { width: 6px; height: 6px; background: #25D366; border-radius: 50%; }
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <div class="logo">
+    Léa Mignon
+    <span>Parfums & Cosmétiques</span>
+  </div>
+  <nav>
+    <a class="active" onclick="scrollToProducts()">Collection</a>
+    <a onclick="filterProducts('femme')">Femme</a>
+    <a onclick="filterProducts('homme')">Homme</a>
+  </nav>
+  <button class="cart-btn" onclick="openCart()">
+    🛍 Panier <span class="cart-count" id="cartCount">0</span>
+  </button>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-orb orb-1"></div>
+  <div class="hero-orb orb-2"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Collection Exclusive 2025</p>
+    <h1>L'art du<em>Parfum</em></h1>
+    <p class="hero-desc">Des fragrances d'exception et des cosmétiques de luxe, soigneusement sélectionnés par Léa Mignon pour sublimer votre quotidien.</p>
+    <button class="hero-cta" onclick="scrollToProducts()">Découvrir la collection</button>
+  </div>
+</section>
+
+<!-- FILTER -->
+
+<section class="filter-section" id="collection">
+  <p class="section-label">Notre sélection</p>
+  <h2 class="section-title">La Collection</h2>
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterProducts('tous')">Tous</button>
+    <button class="filter-btn" onclick="filterProducts('femme')">Femme</button>
+    <button class="filter-btn" onclick="filterProducts('homme')">Homme</button>
+    <button class="filter-btn" onclick="filterProducts('unisexe')">Unisexe</button>
+    <button class="filter-btn" onclick="filterProducts('cosmetiques')">Cosmétiques</button>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="products-section">
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <span class="footer-logo">Léa Mignon</span>
+  © 2025 Parfums & Cosmétiques Léa Mignon — Toutes les commandes sont traitées personnellement
+</footer>
+
+<!-- CART OVERLAY -->
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<!-- CART PANEL -->
+
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <div class="cart-title">
+      <span>Mon panier</span>
+      Sélection
+    </div>
+    <button class="close-cart" onclick="closeCart()">✕</button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon">🛍</div>
+      <p>Votre panier est vide</p>
+    </div>
+  </div>
+
+  <div id="cartFooterSection" style="display:none">
+    <div class="cart-note">
+      <label>Note pour le vendeur</label>
+      <textarea id="cartNote" placeholder="Ex: Cadeau pour un anniversaire, préférence d'emballage..."></textarea>
+    </div>
+
+```
+<div class="contact-form">
+  <div class="form-row">
+    <label>Votre prénom & nom</label>
+    <input type="text" id="clientName" placeholder="Marie Dupont">
+  </div>
+  <div class="form-row">
+    <label>Téléphone / WhatsApp</label>
+    <input type="text" id="clientPhone" placeholder="+33 6 XX XX XX XX">
+  </div>
+  <div class="form-row">
+    <label>Email (optionnel)</label>
+    <input type="email" id="clientEmail" placeholder="marie@exemple.fr">
+  </div>
+</div>
+
+<div class="cart-footer">
+  <div class="cart-total">
+    <span class="cart-total-label">Total estimé</span>
+    <span class="cart-total-price" id="cartTotal">0 €</span>
+  </div>
+  <div class="whatsapp-chip">
+    <span class="whatsapp-dot"></span>
+    Votre commande sera envoyée au vendeur pour préparer votre package
+  </div>
+  <br><br>
+  <button class="send-btn" onclick="sendOrder()">✉ Envoyer ma demande</button>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+
+<div class="success-modal" id="successModal">
+  <div class="success-bg"></div>
+  <div class="success-box">
+    <div class="success-icon">✨</div>
+    <div class="success-title">Demande envoyée !</div>
+    <p class="success-msg">
+      Votre sélection a bien été transmise à notre équipe.<br>
+      Nous vous contacterons très prochainement pour finaliser votre package personnalisé.
+    </p>
+    <button class="success-close" onclick="closeSuccess()">Parfait, merci !</button>
+  </div>
+</div>
+
+<script>
+const products = [
+  { id:1, brand:"Maison Exclusif", name:"Rose Noire", desc:"Notes de rose bulgare, oud et musc ambré. Une signature envoûtante.", price:89, emoji:"🌹", gender:"femme", badge:"Bestseller", category:"parfum" },
+  { id:2, brand:"Signature", name:"Bois Sauvage", desc:"Cèdre, vétiver et cardamome. La forêt à l'état pur.", price:74, emoji:"🌲", gender:"homme", badge:"Nouveau", category:"parfum" },
+  { id:3, brand:"Élixir Origin", name:"Oud Imperiale", desc:"Oud précieux, safran et ambre gris. Un trésor d'Orient.", price:120, emoji:"🕌", gender:"unisexe", badge:"Luxe", category:"parfum" },
+  { id:4, brand:"Lumière", name:"Fleur de Lys", desc:"Iris, jasmin et patchouli poudré. Féminité absolue.", price:65, emoji:"💐", gender:"femme", badge:"", category:"parfum" },
+  { id:5, brand:"Aqua Men", name:"Bleu Atlantique", desc:"Bergamote, ambre marin et bois de cachemire. Fraîcheur virile.", price:58, emoji:"🌊", gender:"homme", badge:"", category:"parfum" },
+  { id:6, brand:"Soin Royal", name:"Crème Visage Or", desc:"Huile d'argan, acide hyaluronique et poudre d'or 24K.", price:95, emoji:"✨", gender:"femme", badge:"Soin Premium", category:"cosmetique" },
+  { id:7, brand:"Nude Glow", name:"Palette Lumière", desc:"12 teintes nude & dorées pour un maquillage naturel et lumineux.", price:42, emoji:"🎨", gender:"femme", badge:"", category:"cosmetique" },
+  { id:8, brand:"Homme Rituel", name:"Baume Barbe", desc:"Karité, huile de jojoba et essence de pin. Le soin de l'homme moderne.", price:35, emoji:"🧴", gender:"homme", badge:"", category:"cosmetique" },
+  { id:9, brand:"Velvet Skin", name:"Sérum Éclat", desc:"Vitamine C, niacinamide et extrait de rosier. Teint parfait garanti.", price:78, emoji:"💎", gender:"femme", badge:"Nouveau", category:"cosmetique" },
+  { id:10, brand:"Nuit Orientale", name:"Ambre Mystique", desc:"Vanille bourbon, ambre et santal. Une invitation au voyage.", price:82, emoji:"🌙", gender:"unisexe", badge:"", category:"parfum" },
+  { id:11, brand:"Homme Signature", name:"Cuir & Tabac", desc:"Cuir tanné, tabac blond et gingembre. L'élégance masculine affirmée.", price:96, emoji:"🥃", gender:"homme", badge:"Premium", category:"parfum" },
+  { id:12, brand:"Beauté Pure", name:"Rouge à Lèvres Mat", desc:"Formule longue tenue, 8h sans retouche. 6 teintes disponibles.", price:28, emoji:"💄", gender:"femme", badge:"", category:"cosmetique" },
+];
+
+let cart = [];
+let currentFilter = 'tous';
+
+function renderProducts(filter) {
+  const grid = document.getElementById('productsGrid');
+  grid.innerHTML = '';
+  const filtered = filter === 'tous' ? products :
+    filter === 'cosmetiques' ? products.filter(p => p.category === 'cosmetique') :
+    products.filter(p => p.gender === filter);
+
+  filtered.forEach((p, i) => {
+    const inCart = cart.find(c => c.id === p.id);
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.style.animationDelay = `${i * 0.05}s`;
+    card.innerHTML = `
+      <div class="product-img">
+        <div class="product-bg"></div>
+        <span class="product-emoji">${p.emoji}</span>
+        ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+        <span class="gender-badge">${p.gender === 'femme' ? '♀ Femme' : p.gender === 'homme' ? '♂ Homme' : '⚬ Unisexe'}</span>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">${p.brand}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-desc">${p.desc}</div>
+        <div class="product-footer">
+          <div class="product-price">${p.price} €</div>
+          <button class="add-btn ${inCart ? 'added' : ''}" onclick="addToCart(${p.id})">
+            ${inCart ? '✓ Ajouté' : '+ Ajouter'}
+          </button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function filterProducts(filter) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    if (b.textContent.toLowerCase().includes(filter) || (filter === 'tous' && b.textContent.includes('Tous'))) {
+      b.classList.add('active');
+    }
+  });
+  event.target.classList.add('active');
+  renderProducts(filter);
+  scrollToProducts();
+}
+
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
+  const existing = cart.find(c => c.id === id);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ ...product, qty: 1 });
+  }
+  updateCartUI();
+  renderProducts(currentFilter);
+  openCart();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(c => c.id !== id);
+  updateCartUI();
+  renderProducts(currentFilter);
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) removeFromCart(id);
+  else { updateCartUI(); }
+}
+
+function updateCartUI() {
+  const count = cart.reduce((s, c) => s + c.qty, 0);
+  document.getElementById('cartCount').textContent = count;
+  const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+  document.getElementById('cartTotal').textContent = total + ' €';
+
+  const itemsEl = document.getElementById('cartItems');
+  const emptyEl = document.getElementById('cartEmpty');
+  const footerEl = document.getElementById('cartFooterSection');
+
+  if (cart.length === 0) {
+    itemsEl.innerHTML = '';
+    itemsEl.appendChild(emptyEl);
+    emptyEl.style.display = 'block';
+    footerEl.style.display = 'none';
+  } else {
+    emptyEl.style.display = 'none';
+    footerEl.style.display = 'block';
+    itemsEl.innerHTML = '';
+    cart.forEach(item => {
+      const el = document.createElement('div');
+      el.className = 'cart-item';
+      el.innerHTML = `
+        <div class="cart-item-emoji">${item.emoji}</div>
+        <div class="cart-item-info">
+          <div class="cart-item-brand">${item.brand}</div>
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">${item.price * item.qty} €</div>
+          <div class="cart-item-actions">
+            <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+            <button class="remove-btn" onclick="removeFromCart(${item.id})">Retirer</button>
+          </div>
+        </div>
+      `;
+      itemsEl.appendChild(el);
+    });
+  }
+}
+
+function openCart() {
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartPanel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartPanel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function sendOrder() {
+  const name = document.getElementById('clientName').value.trim();
+  const phone = document.getElementById('clientPhone').value.trim();
+  if (!name || !phone) {
+    alert('Merci de renseigner votre nom et téléphone pour que le vendeur puisse vous contacter.');
+    return;
+  }
+  if (cart.length === 0) {
+    alert('Votre panier est vide.');
+    return;
+  }
+
+  // Build WhatsApp message
+  const note = document.getElementById('cartNote').value.trim();
+  const email = document.getElementById('clientEmail').value.trim();
+  const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+
+  let msg = `🌟 *NOUVELLE COMMANDE — LÉA MIGNON*\n\n`;
+  msg += `👤 *Client :* ${name}\n`;
+  msg += `📞 *Téléphone :* ${phone}\n`;
+  if (email) msg += `📧 *Email :* ${email}\n`;
+  msg += `\n📦 *Produits commandés :*\n`;
+  cart.forEach(item => {
+    msg += `  • ${item.name} (${item.brand}) × ${item.qty} — ${item.price * item.qty} €\n`;
+  });
+  msg += `\n💰 *Total estimé :* ${total} €\n`;
+  if (note) msg += `\n💬 *Note client :* ${note}\n`;
+  msg += `\n✨ Le client souhaite recevoir un package personnalisé.`;
+
+  // WhatsApp link (vendeur peut configurer son numéro ici)
+  const vendorPhone = '33600000000'; // ← Remplacer par le numéro du vendeur
+  const encodedMsg = encodeURIComponent(msg);
+  const waUrl = `https://wa.me/${vendorPhone}?text=${encodedMsg}`;
+
+  // Simulate sending (open WhatsApp)
+  window.open(waUrl, '_blank');
+
+  // Show success
+  closeCart();
+  document.getElementById('successModal').classList.add('show');
+  cart = [];
+  updateCartUI();
+  renderProducts(currentFilter);
+  document.getElementById('clientName').value = '';
+  document.getElementById('clientPhone').value = '';
+  document.getElementById('clientEmail').value = '';
+  document.getElementById('cartNote').value = '';
+}
+
+function closeSuccess() {
+  document.getElementById('successModal').classList.remove('show');
+}
+
+function scrollToProducts() {
+  document.getElementById('collection').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Init
+renderProducts('tous');
+</script>
+
+</body>
+</html>
