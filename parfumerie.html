@@ -427,6 +427,7 @@ transform: translateX(100%);
 transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 display: flex;
 flex-direction: column;
+overflow: hidden;
 }
 
 .cart-panel.open { transform: translateX(0); }
@@ -475,7 +476,9 @@ justify-content: center;
 .cart-items {
 flex: 1;
 overflow-y: auto;
+overflow-x: hidden;
 padding: 1.5rem;
+-webkit-overflow-scrolling: touch;
 }
 
 .cart-empty {
@@ -569,9 +572,15 @@ transition: color 0.2s;
 
 .remove-btn:hover { color: #ff6b6b; }
 
-.cart-note {
+.cart-form-scroll {
+max-height: 260px;
+overflow-y: auto;
+-webkit-overflow-scrolling: touch;
 padding: 0 1.5rem;
-margin-bottom: 1rem;
+}
+
+.cart-note {
+margin-bottom: 0.8rem;
 }
 
 .cart-note label {
@@ -627,7 +636,7 @@ font-weight: 300;
 }
 
 /* ===== CONTACT FORM ===== */
-.contact-form { padding: 0 1.5rem 1rem; }
+.contact-form { padding: 0; }
 
 .form-row { margin-bottom: 0.8rem; }
 
@@ -884,6 +893,8 @@ margin-top: 0.5rem;
     <button class="close-cart" onclick="closeCart()">✕</button>
   </div>
 
+  <!-- Zone scrollable : produits + formulaire -->
+
   <div class="cart-items" id="cartItems">
     <div class="cart-empty" id="cartEmpty">
       <div class="cart-empty-icon">🛍</div>
@@ -891,42 +902,41 @@ margin-top: 0.5rem;
     </div>
   </div>
 
+  <!-- Formulaire + bouton : toujours en bas, fixe -->
+
   <div id="cartFooterSection" style="display:none">
-    <div class="cart-note">
-      <label>Note pour le vendeur</label>
-      <textarea id="cartNote" placeholder="Ex: Cadeau pour un anniversaire, préférence d'emballage..."></textarea>
+    <div class="cart-form-scroll">
+      <div class="cart-note">
+        <label>Note pour le vendeur</label>
+        <textarea id="cartNote" placeholder="Ex: Cadeau pour un anniversaire, préférence d'emballage..."></textarea>
+      </div>
+      <div class="contact-form">
+        <div class="form-row">
+          <label>Votre prénom & nom *</label>
+          <input type="text" id="clientName" placeholder="Marie Dupont">
+        </div>
+        <div class="form-row">
+          <label>Téléphone *</label>
+          <input type="text" id="clientPhone" placeholder="+33 6 XX XX XX XX">
+        </div>
+        <div class="form-row">
+          <label>Email (optionnel)</label>
+          <input type="email" id="clientEmail" placeholder="marie@exemple.fr">
+        </div>
+      </div>
     </div>
-
-```
-<div class="contact-form">
-  <div class="form-row">
-    <label>Votre prénom & nom</label>
-    <input type="text" id="clientName" placeholder="Marie Dupont">
-  </div>
-  <div class="form-row">
-    <label>Téléphone / WhatsApp</label>
-    <input type="text" id="clientPhone" placeholder="+33 6 XX XX XX XX">
-  </div>
-  <div class="form-row">
-    <label>Email (optionnel)</label>
-    <input type="email" id="clientEmail" placeholder="marie@exemple.fr">
-  </div>
-</div>
-
-<div class="cart-footer">
-  <div class="cart-total">
-    <span class="cart-total-label">Total estimé</span>
-    <span class="cart-total-price" id="cartTotal">0 €</span>
-  </div>
-  <div class="whatsapp-chip">
-    <span class="whatsapp-dot"></span>
-    Votre commande sera envoyée par email à Léa Mignon
-  </div>
-  <br><br>
-  <button class="send-btn" onclick="sendOrder()">✉ Envoyer ma commande</button>
-</div>
-```
-
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label">Total estimé</span>
+        <span class="cart-total-price" id="cartTotal">0 €</span>
+      </div>
+      <div class="whatsapp-chip">
+        <span class="whatsapp-dot"></span>
+        Commande envoyée par email à Léa Mignon
+      </div>
+      <br>
+      <button class="send-btn" onclick="sendOrder()">✉ Envoyer ma commande</button>
+    </div>
   </div>
 </div>
 
